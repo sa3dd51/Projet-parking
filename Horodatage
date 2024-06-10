@@ -1,0 +1,41 @@
+pipeline {
+    agent any
+    parameters {
+        choice(name: 'DATE', choices: ['OUI', 'NON'], description: 'Voulez que l'application accède à la date?')
+        choice(name: 'HEURE', choices: ['OUI', 'NON'], description: 'Voulez que l'application accède à l'heure?')
+        choice(name: 'LIEU', choices: ['OUI', 'NON'], description: 'Voulez-vous passer par un chemin plus rapide?')
+    }
+    stages {
+        stage('Printing trip information') {
+            steps {
+                script {
+                    echo "Choix du péages : ${params.DATE}"
+                    echo "Choix des stations essences : ${params.HEURE}"
+                    echo "Choix de l'accès des données GPS et du trafic routier: ${params.LIEU}"
+                }
+            }
+        }
+        stage('Build') {
+            steps {
+                script {
+                    echo "Build"
+                    echo "Compiling: US - Date/heure/lieu"
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                script {
+                    echo "Test"
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                script {
+                    echo "Deploy"
+                }
+            }
+        }
+    }
+}
