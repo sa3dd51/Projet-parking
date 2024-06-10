@@ -4,6 +4,8 @@ pipeline {
         choice(name: 'NATIONALE', choices: ['OUI', 'NON'], description: 'Voulez-vous passer par une route nationale?')
         choice(name: 'AUTOROUTE', choices: ['OUI', 'NON'], description: 'Voulez-vous passer par une autoroute?')
         choice(name: 'DEPARTEMENTALE', choices: ['OUI', 'NON'], description: 'Voulez-vous passer par une route départementale?')
+        choice(name: 'Parking_Prive', choices: ['Privé', 'Public'], description: 'Voulez-vous utiliser un parking privé')
+        text(name: 'PAIEMENT', description: 'Moyen de paiement')
     }
     stages {
         stage('Printing trip information') {
@@ -11,6 +13,7 @@ pipeline {
                 script {
                     echo "Choix du péages : ${params.NATIONALE}"
                     echo "Choix des stations essences : ${params.AUTOROUTE}"
+                    echo "Choix du type de parking: ${params.Parking_Prive}"
                     echo "Choix de l'accès des données GPS et du trafic routier: ${params.DEPARTEMENTALE}"
                 }
             }
@@ -19,7 +22,7 @@ pipeline {
             steps {
                 script {
                     echo "Build"
-                    echo "Compiling US - Route"
+                    echo "US-Proposer un stationnement sur un parking privé 
                 }
             }
         }
