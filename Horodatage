@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     echo "Build"
-                    echo "Compiling: US - Date/heure/lieu"
+                    echo "US - Demander la date et l'heure à l'utilisateur "
                 }
             }
         }
