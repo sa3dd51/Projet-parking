@@ -1,0 +1,45 @@
+pipeline {
+    agent any
+    parameters {
+        string(name: 'NAME', description: 'Notez votre nom d'utilisateur')
+        text(name: 'TELEPHONE', description:'Notez votre numero de telephone')
+        text(name: 'MAIL', description:'Notez votre adresse mail')
+        choice(name: 'ABONNEMENT', choices: ['OUI', 'NON'], description: 'Avez-vous un compte premium')
+        text(name: 'PAIEMENT', description: 'Moyen de paiement')
+    }
+    stages {
+        stage('Printing user information') {
+            steps {
+                script {
+                    echo "Bonjour ${params.NAME}"
+                    echo "Votre numero de telephone ${params.TELEPHONE}"
+                    echo "Votre adresse mail : ${params.MAIL}"
+                    echo "Votre Adresse Travail : ${params.TRAVAIL}"
+                    echo "Choix de l'abonnement : ${params.ABONNEMENT}"
+                    echo "Choix du moyen de paiement : ${params.PAIEMENT}"
+                }
+            }
+        }
+        stage('Build') {
+            steps {
+                script {
+                    echo "Build"
+                    echo "Compiling US - Abonnement"
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                script {
+                    echo "Test"
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                script {
+                    echo "Deploy"
+                }
+            }
+        }
+    }
