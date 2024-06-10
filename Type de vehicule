@@ -1,0 +1,41 @@
+pipeline {
+    agent any
+    parameters {
+        choice(name: 'VOITURE', choices: ['OUI', 'NON'], description: 'Votre vehicule est il une voiture?')
+        choice(name: 'CAMIONNETTE', choices: ['OUI', 'NON'], description: 'Votre vehicule est il une camionette?')
+        choice(name: 'CAMION', choices: ['OUI', 'NON'], description: 'Votre vehicule est il un camion?')
+    }
+    stages {
+        stage('Printing trip information') {
+            steps {
+                script {
+                    echo "Choix du péages : ${params.VOITURE}"
+                    echo "Choix des stations essences : ${params.CAMIONNETTE}"
+                    echo "Choix de l'accès des données GPS et du trafic routier: ${params.CAMION}"
+                }
+            }
+        }
+        stage('Build') {
+            steps {
+                script {
+                    echo "Build"
+                    echo "Compiling US - Type de véhicule"
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                script {
+                    echo "Test"
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                script {
+                    echo "Deploy"
+                }
+            }
+        }
+    }
+}
