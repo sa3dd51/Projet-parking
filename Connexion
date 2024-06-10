@@ -17,14 +17,6 @@ pipeline {
                 }
             }
         }
-        stage('Build') {
-            steps {
-                script {
-                    echo "Build"
-                    echo "Compiling: US- Accès de l'application par l'utilisateur "
-                }
-            }
-        }
         stage('Test') {
             steps {
                 script {
