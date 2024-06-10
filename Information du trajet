@@ -31,6 +31,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
+                    echo "Envoi des données GPS a google"
                     echo "Deploy"
                 }
             }
