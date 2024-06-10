@@ -1,8 +1,8 @@
 pipeline {
     agent any
     parameters {
-        choice(name: 'DATE', choices: ['OUI', 'NON'], description: 'Voulez que l'application accède à la date?')
-        choice(name: 'HEURE', choices: ['OUI', 'NON'], description: 'Voulez que l'application accède à l'heure?')
+        choice(name: 'DATE', choices: ['OUI', 'NON'], description: 'Voulez que l application accède à la date?')
+        choice(name: 'HEURE', choices: ['OUI', 'NON'], description: 'Voulez que l application accède à l'heure?')
         choice(name: 'LIEU', choices: ['OUI', 'NON'], description: 'Voulez-vous passer par un chemin plus rapide?')
     }
     stages {
