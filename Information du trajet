@@ -3,14 +3,14 @@ pipeline {
     parameters {
         choice(name: 'PEAGES', choices: ['OUI', 'NON'], description: 'Voulez-vous des peages sur le trajet?')
         choice(name: 'DONNEES_GOOGLE', choices: ['OUI', 'NON'], description: 'Voulez-vous que vos données GPS soient utiliser par google pour ameliorer les trajets future?')
-        choice(name: 'DETECTION_PLACE_PARKING', choices: ['OUI', 'NON'], description: 'Voulez-vous Savoir le nombre de place restant sur les parking (fonctionalitée abonnement)')
+        choice(name: 'Detection_Place_Parking', choices: ['OUI', 'NON'], description: 'Voulez-vous savoir le nombre de place restant sur les parking (fonctionalitee abonnement)')
     }
     stages {
         stage('Printing trip information') {
             steps {
                 script {
-                    echo "Choix du péages : ${params.PEAGES}"
-                    echo "Choix de l'accès des données GPS et du trafic routier: ${params.DONNEES_GOOGLE}"
+                    echo "Choix du peages : ${params.PEAGES}"
+                    echo "Choix de l'acces des donnees GPS et du trafic routier: ${params.DONNEES_GOOGLE}"
                     echo "Detection des places de parking restante: ${Detection_Place_Parking}"
                 }
             }
@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     echo "Build"
-                    echo "US - acces données et trafic routier Google"
+                    echo "US - acces donnees et trafic routier Google"
                 }
             }
         }
@@ -33,7 +33,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    echo "Envoi des données GPS a google"
+                    echo "Envoi des donnees GPS a google"
                     echo "Deploy"
                 }
             }
