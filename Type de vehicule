@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     echo "Build"
-                    echo "Compiling US - Type de véhicule"
+                    echo "US-Sélectionner le type de véhicule dans l'application"
                 }
             }
         }
