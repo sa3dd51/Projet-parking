@@ -1,0 +1,43 @@
+pipeline {
+    agent any
+    parameters {
+        choice(name: 'PEAGES', choices: ['OUI', 'NON'], description: 'Voulez-vous des péages sur le trajet?')
+        choice(name: 'STATION_ESSENCE', choices: ['OUI', 'NON'], description: 'Voulez-vous des stations essences sur le trajet?')
+        choice(name: 'DONNEES_TRAFIC', choices: ['OUI', 'NON'], description: 'Voulez-vous que l'application accède aux données GPS et du trafic routier google')
+    }
+    stages {
+        stage('Printing trip information') {
+            steps {
+                script {
+                    echo "Choix du péages : ${params.PEAGES}"
+                    echo "Choix des stations essences : ${params.STATION_ESSENCE}"
+                    echo "Choix de l'accès des données GPS et du trafic routier: ${params.DONNEES_TRAFIC}"
+                }
+            }
+        }
+        stage('Build') {
+            steps {
+                script {
+                    echo "Build"
+                    echo "Compiling: US - Péages"
+                    echo "Compiling: US - Station essence"
+                    echo "Compiling: US - US - accès données et trafic routier Google"
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                script {
+                    echo "Test"
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                script {
+                    echo "Deploy"
+                }
+            }
+        }
+    }
+}
