@@ -3,7 +3,6 @@ pipeline {
     parameters {
         choice(name: 'PEAGES', choices: ['OUI', 'NON'], description: 'Voulez-vous des péages sur le trajet?')
         choice(name: 'STATION_ESSENCE', choices: ['OUI', 'NON'], description: 'Voulez-vous des stations essences sur le trajet?')
-        choice(name: 'DONNEES_TRAFIC', choices: ['OUI', 'NON'], description: 'Voulez-vous que l'application accède aux données GPS et du trafic routier google')
     }
     stages {
         stage('Printing trip information') {
