@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters {
-        choice(name: 'PEAGES', choices: ['OUI', 'NON'], description: 'Voulez-vous des péages sur le trajet?')
+        choice(name: 'PEAGES', choices: ['OUI', 'NON'], description: 'Voulez-vous des peages sur le trajet?')
         choice(name: 'DONNEES_GOOGLE', choices: ['OUI', 'NON'], description: 'Voulez-vous que vos données GPS soient utiliser par google pour ameliorer les trajets future?')
         choice(name: 'Detection_Place_Parking', choices: ['OUI', 'NON'], description: 'Voulez-vous Savoir le nombre de place restant sur les parking (fonctionalitée abonnement)')
     }
@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     echo "Build"
-                    echo "US - accès données et trafic routier Google"
+                    echo "US - acces données et trafic routier Google"
                 }
             }
         }
