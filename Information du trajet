@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     echo "Build"
-                    echo "Compiling: US - accès données et trafic routier Google"
+                    echo "US - accès données et trafic routier Google"
                 }
             }
         }
